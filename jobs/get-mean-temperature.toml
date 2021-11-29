@@ -1,0 +1,37 @@
+type = "directrequest"
+schemaVersion = 1
+minContractPaymentLinkJuels = "10000000000000000" # 0.01 LINK
+name = "Get mean temperature"
+contractAddress = "0xfFcb560A05183a9a0ee04ba93B624656AD61FD7B" # Operator.sol address (also in submit_tx task)
+maxTaskDuration = "0s"
+observationSource = """
+    decode_log                      [type="ethabidecodelog"
+                                     abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"
+                                     data="$(jobRun.logData)"
+                                     topics="$(jobRun.logTopics)"]
+    decode_cbor                     [type=cborparse data="$(decode_log.data)"]
+    accuweather                     [type=bridge
+                                     name="accuweather"
+                                     requestData="{\\"data\\": {\\"endpoint\\": \\"location-current-conditions\\",\\"lat\\": $(decode_cbor.lat),\\"lon\\": $(decode_cbor.lon),\\"units\\": $(decode_cbor.units), \\"encodeResult\\": false}}"]
+    openweather                     [type=bridge
+                                     name="openweather"
+                                     requestData="{\\"data\\": {\\"lat\\": $(decode_cbor.lat),\\"lon\\": $(decode_cbor.lon),\\"units\\": $(decode_cbor.units)}}"]                                 
+    accuweather_parse               [type=jsonparse data="$(accuweather)" path="result,temperature"]
+    openweather_parse               [type=jsonparse data="$(openweather)" path="result"]
+    openweather_multiply            [type="multiply" input="$(openweather_parse)" times=10]
+    mean_temp                       [type="mean"
+                                     values=<[$(accuweather_parse), $(openweather_multiply)]>
+                                     precision=0]
+    encode_data                     [type=ethabiencode
+                                     abi="(bytes32 _requestId, int256 _meanTemp)" # Cannot be int16
+                                     data="{\\"_requestId\\": $(decode_log.requestId),\\"_meanTemp\\": $(mean_temp)}"]
+    encode_tx                       [type=ethabiencode
+                                     abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
+                                     data="{\\"requestId\\": $(decode_log.requestId),\\"payment\\": $(decode_log.payment),\\"callbackAddress\\": $(decode_log.callbackAddr),\\"callbackFunctionId\\": $(decode_log.callbackFunctionId),\\"expiration\\": $(decode_log.cancelExpiration),\\"data\\": $(encode_data)}"]
+    submit_tx                       [type=ethtx to="0xfFcb560A05183a9a0ee04ba93B624656AD61FD7B" data="$(encode_tx)" minConfirmations="2"]
+
+    decode_log -> decode_cbor
+    decode_cbor -> accuweather -> accuweather_parse -> mean_temp
+    decode_cbor -> openweather -> openweather_parse -> openweather_multiply -> mean_temp
+    mean_temp -> encode_data -> encode_tx -> submit_tx
+"""

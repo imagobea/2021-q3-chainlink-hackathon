@@ -1,0 +1,49 @@
+{
+    "jobRunID": 0,
+    "data": {
+        "coord": {
+            "lon": 2.1759,
+            "lat": 41.4069
+        },
+        "weather": [
+            {
+                "id": 800,
+                "main": "Clear",
+                "description": "clear sky",
+                "icon": "01n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 6.53,
+            "feels_like": 3.96,
+            "temp_min": 6.53,
+            "temp_max": 7.63,
+            "pressure": 1006,
+            "humidity": 61
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 3.6,
+            "deg": 250
+        },
+        "clouds": {
+            "all": 0
+        },
+        "dt": 1638127243,
+        "sys": {
+            "type": 1,
+            "id": 6414,
+            "country": "ES",
+            "sunrise": 1638082502,
+            "sunset": 1638116636
+        },
+        "timezone": 3600,
+        "id": 3124932,
+        "name": "el Clot",
+        "cod": 200,
+        "result": 6.53
+    },
+    "result": 6.53,
+    "statusCode": 200
+}

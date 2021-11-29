@@ -1,0 +1,42 @@
+{
+    "jobRunID": "1",
+    "result": {
+        "locationFound": true,
+        "locationKey": 304344,
+        "name": "la Sagrada Família",
+        "countryCode": "0x4553",
+        "precipitationPast12Hours": 0,
+        "precipitationPast24Hours": 0,
+        "precipitationPastHour": 0,
+        "precipitationType": 0,
+        "pressure": 100600,
+        "relativeHumidity": 59,
+        "temperature": 63,
+        "timestamp": 1638127080,
+        "uvIndex": 0,
+        "weatherIcon": 38,
+        "windDirectionDegrees": 270,
+        "windSpeed": 271
+    },
+    "statusCode": 200,
+    "data": {
+        "result": {
+            "locationFound": true,
+            "locationKey": 304344,
+            "name": "la Sagrada Família",
+            "countryCode": "0x4553",
+            "precipitationPast12Hours": 0,
+            "precipitationPast24Hours": 0,
+            "precipitationPastHour": 0,
+            "precipitationType": 0,
+            "pressure": 100600,
+            "relativeHumidity": 59,
+            "temperature": 63,
+            "timestamp": 1638127080,
+            "uvIndex": 0,
+            "weatherIcon": 38,
+            "windDirectionDegrees": 270,
+            "windSpeed": 271
+        }
+    }
+}
