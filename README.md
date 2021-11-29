@@ -81,6 +81,10 @@ E.g. [0x4238e4ec58dc817d569f83b02820acf28f9e117b](https://kovan.etherscan.io/add
 1. Fund your node address with ETH
 2. Fund the consumer contract with LINK
 
+### Step 8. Test
+
+Call `requestGeoPositionTemperature` (consumer), then use `requestIdMeanTemp` to get the average temperature (note that it is multiplied by 10).
+
 ### Final thoughts
 
 TBC
