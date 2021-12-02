@@ -8,7 +8,7 @@ To complete the following steps, setup a Metamask wallet and get some ETH and LI
 
 ### Step 1. Run a Chainlink node
 
-Visit the Chainlink docs for instructions about [running a node](https://docs.chain.link/docs/running-a-chainlink-node/). For the purposes of this demo, [Chainlink version 1.0.0](https://github.com/smartcontractkit/chainlink/releases/tag/v1.0.0) was used.
+Visit the Chainlink docs for instructions about [running a node](https://docs.chain.link/docs/running-a-chainlink-node/). For the purposes of this demo, [Chainlink version 0.10.15](https://github.com/smartcontractkit/chainlink/releases/tag/v0.10.15) was used.
 
 ### Step 2. Deploy an oracle contract
 
@@ -72,8 +72,6 @@ curl -X POST -H "Content-Type: application/json" "http://localhost:8081" --data 
 
 Code in contracts/TemperatureConsumer.sol.
 
-E.g. [0x92Fa7e523fdD4677Adb8e5168486981A59A452fC](https://kovan.etherscan.io/address/0x92Fa7e523fdD4677Adb8e5168486981A59A452fC) - contract validation on Etherscan fails, but can be tested on Remix: `requestIdMeanTemp` > paste [0x45198a5b5d3f297c097f8986a3e702a9a98a8b84a10e9b04fbfa71e292b217b9](https://kovan.etherscan.io/tx/0xdefeb951d58e3a25dcac20cd0e5dce0f3ecf2d535b612a79828a2e329469d21c#eventlog)
-
 E.g. [0x4238e4ec58dc817d569f83b02820acf28f9e117b](https://kovan.etherscan.io/address/0x4238e4ec58dc817d569f83b02820acf28f9e117b) - validated but with no transactions due to node failure
 
 ### Step 7. Send Funds
@@ -83,7 +81,15 @@ E.g. [0x4238e4ec58dc817d569f83b02820acf28f9e117b](https://kovan.etherscan.io/add
 
 ### Step 8. Test
 
-Call `requestGeoPositionTemperature` (consumer), then use `requestIdMeanTemp` to get the average temperature (note that it is multiplied by 10).
+Visit the [TemperatureCosumer contract](https://kovan.etherscan.io/address/0x4238e4ec58dc817d569f83b02820acf28f9e117b). Make sure Metamask is connected.
+
+**Contract > Write contract**
+
+Call `requestGeoPositionTemperature` (consumer) to get the average temperature for a given lat, lon.
+
+**Contract > Read contract**
+
+Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10), e.g. 0x72e7be3659d3f593a7f3530b0c138e5308b8cb4e99ae8a4b5e47ab5b2e5c16fd. Use `requestIdRequestParams` to query the geoposition. 
 
 ### Final thoughts
 
