@@ -89,8 +89,21 @@ Call `requestGeoPositionTemperature` (consumer) to get the average temperature f
 
 **Contract > Read contract**
 
-Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10), e.g. 0x72e7be3659d3f593a7f3530b0c138e5308b8cb4e99ae8a4b5e47ab5b2e5c16fd. Use `requestIdRequestParams` to query the geoposition. 
+Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10), e.g.
 
-### Final thoughts
+```
+0x72e7be3659d3f593a7f3530b0c138e5308b8cb4e99ae8a4b5e47ab5b2e5c16fd.
+```
+
+*The average temperature at Cumbre Vieja volcano is 12.2°C.*
+
+| Source | T(°C) | Observation dt (GMT) |
+| --- | --- | --- |
+| Accuweather | 16.0 |  Thursday, 2 December 2021 06:37:00 |
+| Openweather | 8.49 |  Thursday, 2 December 2021 06:54:18 |
+
+Use `requestIdRequestParams` to query the geoposition. 
+
+## Final thoughts
 
 TBC
