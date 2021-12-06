@@ -99,7 +99,7 @@ Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10),
 
 *At the time of making the request, the average temperature at Cumbre Vieja volcano was 12.2°C.*
 
-| Source | T(°C) | Observation dt (GMT) |
+| Source | T (°C) | Observation dt (GMT) |
 | --- | --- | --- |
 | Accuweather | 16.0 |  Thursday, 2 December 2021 06:37:00 |
 | Openweather | 8.49 |  Thursday, 2 December 2021 06:54:18 |
