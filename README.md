@@ -108,9 +108,9 @@ You can use `requestIdRequestParams` to query get back the lat, lon.
 
 ## What's next (ideas)
 
-- [] Provide instructions for running Openweather adapter within a container
-- [] Implement the Openweather adapter utilizing the external adapters official framework
-- [] Expand the results returned from the Openweather adapter (not just temperature, but at least `dt`)
-- [] Provide data from other APIs
-- [] Consider edge cases
-- [] A nice front end!
+- [ ] Provide instructions for running Openweather adapter within a container
+- [ ] Implement the Openweather adapter utilizing the external adapters official framework
+- [ ] Expand the results returned from the Openweather adapter (not just temperature, but at least `dt`)
+- [ ] Provide data from other APIs
+- [ ] Consider edge cases
+- [ ] A nice front end!
