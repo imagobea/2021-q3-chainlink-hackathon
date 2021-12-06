@@ -1,6 +1,8 @@
 # What's the weather LINK?
 
-Get the average current temperature at a given location from [Accuweather](http://apidev.accuweather.com/developers/) and [Openweather](https://openweathermap.org/current).
+Get the average current temperature at a given location fromby querying [Accuweather](http://apidev.accuweather.com/developers/) and [Openweather](https://openweathermap.org/current).
+
+*Note that this is not a repository that you can run, but a collection of steps and snippets that will allow you to experiment with Chainlink technology: nodes, jobs, tasks and external adapters*.
 
 ## Setup
 
@@ -92,7 +94,7 @@ Call `requestGeoPositionTemperature` (consumer) to get the average temperature f
 Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10), e.g.
 
 ```
-0x72e7be3659d3f593a7f3530b0c138e5308b8cb4e99ae8a4b5e47ab5b2e5c16fd.
+0x72e7be3659d3f593a7f3530b0c138e5308b8cb4e99ae8a4b5e47ab5b2e5c16fd
 ```
 
 *At the time of making the request, the average temperature at Cumbre Vieja volcano was 12.2°C.*
@@ -104,6 +106,11 @@ Call `requestIdMeanTemp` to check the result (note that it is multiplied by 10),
 
 You can use `requestIdRequestParams` to query get back the lat, lon.
 
-## Final thoughts
+## What's next (ideas)
 
-TBC
+- [] Provide instructions for running Openweather adapter within a container
+- [] Implement the Openweather adapter utilizing the external adapters official framework
+- [] Expand the results returned from the Openweather adapter (not just temperature, but at least `dt`)
+- [] Provide data from other APIs
+- [] Consider edge cases
+- [] A nice front end!
