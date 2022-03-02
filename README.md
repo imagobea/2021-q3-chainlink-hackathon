@@ -1,6 +1,6 @@
 # What's the weather LINK?
 
-Get the average current temperature at a given location fromby querying [Accuweather](http://apidev.accuweather.com/developers/) and [Openweather](https://openweathermap.org/current).
+Get the average current temperature at a given location by querying [Accuweather](http://apidev.accuweather.com/developers/) and [Openweather](https://openweathermap.org/current) APIs.
 
 *Note that this is not a repository that you can run, but a collection of steps and snippets that will allow you to experiment with Chainlink technology: nodes, jobs, tasks and external adapters*.
 
